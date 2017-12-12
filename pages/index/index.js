@@ -24,7 +24,7 @@ Page({
                         _this.setData({weather})
                         app.globalData.weather = weather
                     }).catch(_this.onError)
-                Api.get24Weather(cityid)
+                API.get24Weather(cityid)
                     .then((hourly) => {
                         hourly.forEach((hour) => {
                             hour.img = `../../images/weather/${hour.code}.png`
@@ -37,6 +37,7 @@ Page({
     },
 
     onError(err) {
+        console.log(111 + err + 111)
         wx.showToast({
             title: err.msg,
             duration: 2000

@@ -1,6 +1,6 @@
 function getBackground(code) {
     let bg
-    switch(code){
+    switch (code) {
         case '0': //晴
         case '1':
         case '2':
@@ -59,14 +59,14 @@ function formatTime(timestr) {
     let time = new Date(timestr).getTime()
     let now = Date.now()
     let str
-    if(now-time<60*1000){
+    if (now - time < 60 * 1000) {
         str = '刚刚'
-    }else if(now-time<60*60*1000){
-        str = parseInt((now-time)/(1000*60)) + '分钟前'
-    }else if(now-time<24*60*60*1000){
-        str = parseInt((now-time)/(60*1000*60)) + '小时前'
-    }else{
-        str = parseInt((now-time)/(24*60*1000*60)) + '天前'
+    } else if (now - time < 60 * 60 * 1000) {
+        str = parseInt((now - time) / (1000 * 60)) + '分钟前'
+    } else if (now - time < 24 * 60 * 60 * 1000) {
+        str = parseInt((now - time) / (60 * 1000 * 60)) + '小时前'
+    } else {
+        str = parseInt((now - time) / (24 * 60 * 1000 * 60)) + '天前'
     }
     return str
 }
@@ -77,15 +77,15 @@ function formatHour(timestr) {
     let targetHour = targetDate.getHours()
     let nowHour = nowDate.getHours()
     let str
-    if(nowHour == targetHour){
+    if (nowHour == targetHour) {
         str = '现在'
-    }else{
+    } else {
         str = `${targetHour}点`
     }
     return str
 }
 
-module.export = {
+module.exports = {
     getBackground,
     formatTime,
     formatHour
